@@ -1,17 +1,36 @@
-### 用 Python 写问答网站练手
+### 这里放的代码是啥?  
+是我用各个 Web 框架去问答网站的代码  
+(肯定不会写一个完整能用的, 费时间且没必要, 大概写写而已, 主要是了解框架整个文件夹结构, 怎么操作 cookie session, 怎么连数据库, 操作模板, 实现个登陆系统(注册页面+登陆页面) 等等这类事情摸清楚就差不多了)  
+
+
+<br/>
+### 我写这些目的: 试用并了解各个 Web 框架
+通过看网上文章 + 各个都尝试下, 写点小东西.   
+然后对各个框架之间的差异, 优势劣势, 是重型还是轻巧有个更深的概念.  
+没了, 就这目的  
+
+
+<br/>
+#### 当前状态: 未完成, 还没有结论
+
+
+
+<br/>
+### Python 框架列表
+Django  
+bottle  
+Flask  
+Tornado  
+Pyrmaid  
+web.py  
+
+
+<br/>
+##### 目录说明  
 根目录下的 python 文件主要是各种测试用的短小代码  
 
 
-### Python 框架列表
-
-
-
-
-How to install Python MySQLdb module using pip?  
-http://stackoverflow.com/questions/25865270/how-to-install-python-mysqldb-module-using-pip  
-
-
-
+<br/>
 #### 社区  
 http://www.pycon.org/  
 
@@ -26,7 +45,7 @@ https://python-china.org/
 https://groups.google.com/forum/#!forum/python-cn  
 
 
-
+<br/>
 #### 学习  
 怎么用最短时间高效而踏实地学习 Python？  
 http://www.zhihu.com/question/28530832  
@@ -45,12 +64,12 @@ http://www.zhihu.com/question/34907211
 http://www.zhihu.com/question/21017354  
 
 
-
+<br/>
 ### 部署
 http://docs.jinkan.org/docs/flask/deploying/index.html  
 
 
-
+<br/>
 ### Python & MySQL
 MySQLdb 模块
 要先自己安装, 默认是不带的  
@@ -66,22 +85,27 @@ https://github.com/farcepest/MySQLdb1
 http://www.tutorialspoint.com/python/python_database_access.htm
 http://zetcode.com/db/mysqlpython/
 
+
+
+<br/>
 ### Virtualenv
+
+
+
+<br/>
+### 其他资料
+How to install Python MySQLdb module using pip?  
+http://stackoverflow.com/questions/25865270/how-to-install-python-mysqldb-module-using-pip  
 
 How do I connect to a MySQL Database in Python?
 http://stackoverflow.com/questions/372885/how-do-i-connect-to-a-mysql-database-in-python
 
+__(on my reading list)Django vs Flask vs Pyramid: Choosing a Python Web Framework__
+https://www.airpair.com/python/posts/django-flask-pyramid
 
 
-
-
-
-
-
-
-
-
-
+浅谈Python web框架 -- 2011年  
+http://feilong.me/2011/01/talk-about-python-web-framework  
 
 
 

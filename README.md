@@ -29,6 +29,12 @@ web.py
 ##### 目录说明  
 根目录下的 python 文件主要是各种测试用的短小代码  
 
+文件夹和文件的序号啥意思?  
+
+  没啥特别含义, 就是看起来有顺序一点  
+  因为我看别人的代码的时候总是觉得不知道从哪里看起, 有种奇怪的蛋疼感  
+  而且标了序号之后再命令行里面补全也挺方便的, 所以就加了数字序号上去  
+
 
 <br/>
 #### 社区  
@@ -43,6 +49,7 @@ http://weekly.pychina.org/
 https://python-china.org/  
 
 https://groups.google.com/forum/#!forum/python-cn  
+
 
 
 <br/>

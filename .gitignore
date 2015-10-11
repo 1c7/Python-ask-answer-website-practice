@@ -1,3 +1,8 @@
+# python virtualenv
+Flask/venv/
+Flask/MySQL-python-1.2.4b4/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

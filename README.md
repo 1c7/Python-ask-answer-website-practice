@@ -115,6 +115,73 @@ https://www.airpair.com/python/posts/django-flask-pyramid
 http://feilong.me/2011/01/talk-about-python-web-framework  
 
 
+<br/>
+### 对比
+
+
+#### Flask
+```Python
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+
+```
+
+#### Tornado
+```
+
+import tornado.ioloop
+import tornado.web
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("Hello, world")
+
+application = tornado.web.Application([
+    (r"/", MainHandler),
+])
+
+if __name__ == "__main__":
+    port = 8888
+    print("Listening at localhost:"+ str(port))
+    application.listen(port)
+    tornado.ioloop.IOLoop.instance().start()
+    
+```
+
+
+#### Web.py
+```
+import web
+        
+urls = (
+    '/(.*)', 'hello'
+)
+app = web.application(urls, globals())
+
+class hello:        
+    def GET(self, name):
+        if not name: 
+            name = 'World'
+        return 'Hello, ' + name + '!'
+
+if __name__ == "__main__":
+    app.run()
+
+```
+
+
+
+
+
+
 
 
 

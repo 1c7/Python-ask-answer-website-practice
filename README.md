@@ -17,7 +17,7 @@
 
 <br/>
 ### Python 框架列表
-Django  
+Django - 太重了不适合这个项目  
 bottle  
 Flask  
 Tornado  

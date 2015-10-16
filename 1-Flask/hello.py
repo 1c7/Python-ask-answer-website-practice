@@ -1,35 +1,100 @@
 #coding=utf-8
-from flask import Flask
-app = Flask(__name__)
-from flask import request
-from flask import abort, redirect, url_for
-import MySQLdb
-import json
 
-# 连接数据库的之后 print() 中文是乱码
-# 输出到网页也是乱码, 看看怎么回事
+from flask import Flask, request, abort, redirect, url_for, render_template
+from flaskext.mysql import MySQL
+#import MySQLdb
+import json
+import bcrypt 
+# 加密用的模块
+
+app = Flask(__name__)
+
+
+
+mysql = MySQL()
+app = Flask(__name__)
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'admin'
+app.config['MYSQL_DATABASE_DB'] = 'tophot'
+mysql.init_app(app)
 
 
 # 基础
-@app.route('/')
+@app.route('/login')
 def hello_world():
-    try:
-        conn=MySQLdb.connect(host='localhost',user='root',passwd='admin',db='tophot',port=3306)
-        cur=conn.cursor()
-        x = cur.execute('select title, description from question')
-        result = cur.fetchone()
-        print(result)
-        cur.close()
-        conn.close()
-    except MySQLdb.Error,e:
-         print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+    return render_template('login.html')
+    #Flask will look for templates in the templates folder.
+
+
+
+@app.route('/handle_login', methods=['POST'])
+def handle_login():
     
-    a = json.dumps(result)
-    return a
-    #return result + 'Hello World!'
+    # http://stackoverflow.com/questions/8552675/form-sending-error-flask
+    if request.form.get('email', None) == None:
+      return '用户名不能为空'
+      
+    if request.form.get('pwd', None) == None:
+      return '密码不能为空'
+    
+    email = request.form['email']
+    pwd = request.form['pwd']
+    
+    print(email)
+    print(pwd)
+
+    return 'xxxx'
+
+#
+# 注册
+#
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
 
 
+@app.route('/handle_signup', methods=['POST'])
+def handle_signup():
+    
+    # http://stackoverflow.com/questions/8552675/form-sending-error-flask
+    if request.form.get('email', None) == None:
+      return '用户名不能为空'
+      
+    if request.form.get('pwd', None) == None:
+      return '密码不能为空'
+      
+    if request.form.get('confirm_pwd', None) == None:
+      return '重输密码不能为空' 
+         
+    email = request.form['email']
+    pwd = request.form['pwd']
+    confirm_pwd = request.form['confirm_pwd']
+    
+    hashed = bcrypt.hashpw(pwd.encode('utf-8'), bcrypt.gensalt())
+    
+    # 连接数据库
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SET NAMES utf8mb4;") #or utf8 or any other charset you want to handle
 
+    cursor.execute("SET CHARACTER SET utf8mb4;") #same as above
+
+    cursor.execute("SET character_set_connection=utf8mb4;") #same as above
+    a = cursor.execute("SELECT * FROM question") # 返回记录条数
+    print (a)
+    print (cursor.fetchone())
+
+    for x in cursor.fetchall():
+      print (x)
+
+    return "Welcome to Python Flask App!"
+    
+    print(email)
+    print(pwd)
+    print(hashed)
+    return 'xxxx'
 
 
 # 模板

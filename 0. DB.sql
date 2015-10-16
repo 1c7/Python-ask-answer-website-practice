@@ -38,11 +38,15 @@ create table answer(
   账户创建时间
 */
 create table account(
-  aid
-  email
-  password
-  signupTime
+  aid int unsigned auto_increment,
+  email varchar(100),
+  password varchar(1024),
+  signupTime  timestamp default now(),
+  primary key(aid)
 )DEFAULT CHARSET=utf8;
+
+
+
 
 -- 用户信息
 /*
